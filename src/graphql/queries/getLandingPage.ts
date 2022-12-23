@@ -6,9 +6,25 @@ const GET_LP = /* GraphQL */ `
     }
   }
 
+  fragment header on LandingPage {
+    sectionHero {
+      title
+      subtitle
+      button {
+        title
+        url
+      }
+      media {
+        alternativeText
+        url
+      }
+    }
+  }
+
   query GET_LP {
     landingPage {
       ...logo
+      ...header
     }
   }
 `
