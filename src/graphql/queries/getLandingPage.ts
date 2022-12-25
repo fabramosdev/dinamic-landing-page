@@ -7,7 +7,7 @@ const GET_LP = /* GraphQL */ `
   }
 
   fragment header on LandingPage {
-    sectionHero {
+    header {
       title
       subtitle
       button {
@@ -21,10 +21,45 @@ const GET_LP = /* GraphQL */ `
     }
   }
 
+  fragment sectionAboutProject on LandingPage {
+    sectionAboutProject {
+      image {
+        alternativeText
+        url
+      }
+      title
+      description
+    }
+  }
+
+  fragment sectionTech on LandingPage {
+    sectionTech {
+      title
+      tech {
+        title
+        icon {
+          url
+        }
+      }
+    }
+  }
+
+  fragment sectionConcepts on LandingPage {
+    sectionConcepts {
+      title
+      concept {
+        concept
+      }
+    }
+  }
+
   query GET_LP {
     landingPage {
       ...logo
       ...header
+      ...sectionAboutProject
+      ...sectionTech
+      ...sectionConcepts
     }
   }
 `
