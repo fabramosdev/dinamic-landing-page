@@ -53,6 +53,38 @@ const GET_LP = /* GraphQL */ `
     }
   }
 
+  fragment sectionModules on LandingPage {
+    sectionModules {
+      title
+      module {
+        title
+        subtitle
+        description
+      }
+    }
+  }
+
+  fragment sectionAgenda on LandingPage {
+    sectionAgenda {
+      title
+      description
+    }
+  }
+
+  fragment sectionPrice on LandingPage {
+    sectionPrice {
+      originalPriceText
+      procionalPriceText
+      courseResources {
+        concept
+      }
+      button {
+        title
+        url
+      }
+    }
+  }
+
   query GET_LP {
     landingPage {
       ...logo
@@ -60,6 +92,9 @@ const GET_LP = /* GraphQL */ `
       ...sectionAboutProject
       ...sectionTech
       ...sectionConcepts
+      ...sectionModules
+      ...sectionAgenda
+      ...sectionPrice
     }
   }
 `
